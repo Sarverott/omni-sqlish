@@ -22,8 +22,8 @@ tasks:
   build:
     cmds:
       - poetry update
-      - docker build .
       - poetry build
+      - poetry install 
     silent: false
   default:
     cmds:

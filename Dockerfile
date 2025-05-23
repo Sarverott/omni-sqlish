@@ -6,14 +6,12 @@ WORKDIR /app
 #RUN python3 -m venv /app/.venv
 #RUN source /app/.venv/bin/activate
 #RUN python3 -m ensurepip
-RUN pip3 install --no-cache --upgrade pip setuptools poetry --break-system-packages
+RUN pip3 install --no-cache --upgrade pip setuptools poetry go-task-bin --break-system-packages
 
 WORKDIR /app
 COPY . /app/
 
-RUN poetry update
-RUN poetry build
-RUN poetry install 
+RUN task build
 
 ENTRYPOINT ["python3", "/app/src/main.py"]
 #ENTRYPOINT ["mysql"]

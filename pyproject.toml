@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "omni-sqlish"
+version = "0.1.0"
+description = "translation space of sql shematic dumps"
+authors = ["Sett Sarverott <sarverott@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+docker = "^7.1.0"
+sqlite3-to-mysql = "^2.4.0"
+mysql-to-sqlite3 = "^2.4.1"
+podman = "^5.4.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

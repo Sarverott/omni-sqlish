@@ -11,7 +11,11 @@ RUN pip3 install --no-cache --upgrade pip setuptools poetry go-task-bin --break-
 WORKDIR /app
 COPY . /app/
 
+#RUN poetry add poetry-plugin-export
 RUN task build
+#RUN poetry export -f requirements.txt --output requirements.txt
+#RUN pip3 install -r /app/requirements.txt --break-system-packages
 
-ENTRYPOINT ["python3", "/app/src/main.py"]
+ENTRYPOINT ["poetry", "run", "python3", "/app/src/contain.py"]
+CMD ["poetry", "run", "python3", "/app/src/omnisqlish/__init__.py"]
 #ENTRYPOINT ["mysql"]

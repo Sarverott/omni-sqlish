@@ -16,6 +16,9 @@ includes:
     flatten: true
 
 tasks:
+  rundock:
+    cmds:
+      - sudo docker run omnisqlish
   makedock:
     cmds:
       - sudo docker build -t omnisqlish .
@@ -27,5 +30,5 @@ tasks:
     silent: false
   default:
     cmds:
-      - poetry run python3 ./src/main.py
+      - poetry run python3 ./src/omnisqlish/main.py
     silent: true

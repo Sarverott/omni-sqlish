@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "omni-sqlish"
+name = "omnisqlish"
 version = "0.1.0"
 description = "translation space of sql shematic dumps"
 authors = ["Sett Sarverott <sarverott@gmail.com>"]
@@ -14,6 +14,7 @@ mysql-to-sqlite3 = "^2.4.1"
 podman = "^5.4.0.1"
 mysql-connector-python = "^9.3.0"
 psycopg2-binary = "^2.9.10"
+python-dotenv = "^1.1.0"
 
 
 [build-system]

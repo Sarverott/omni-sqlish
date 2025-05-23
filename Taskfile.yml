@@ -2,10 +2,29 @@
 
 version: '3'
 
+dotenv:
+  - .env
+  #- .venv/bin/activate
+  - '{{.HOME}}/.env'
+
 #vars:
 #  GREETING: Hello, World!
 
+includes:
+  setup: 
+    taskfile: ./presets/{{OS}}/setup.yml
+    flatten: true
+
 tasks:
+  makedock:
+    cmds:
+      - sudo docker build -t omnisqlish .
+  build:
+    cmds:
+      - poetry update
+      - docker build .
+      - poetry build
+    silent: false
   default:
     cmds:
       - poetry run python3 ./src/main.py

@@ -1,0 +1,23 @@
+version: '3'
+
+vars:
+  APT_PACKAGES: 
+    [podman, python3, python3-pip]
+tasks:
+  install_docker:
+    cmds:
+      - curl -fsSL https://get.docker.com | sudo sh
+    internal: true
+  venv_run:
+    cmds:
+      - rm -rf .venv
+      - python3 -m venv .venv
+  install:
+    cmds:
+      - sudo apt update
+      - for: 
+          var: APT_PACKAGES 
+        cmd: sudo apt-get -y install {{.ITEM}}
+      #- task: install_docker
+      - task: venv_run
+    silent: false
